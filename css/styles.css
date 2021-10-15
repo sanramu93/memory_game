@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* QUICK RESET */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  background-color: #264653;
+  color: #eaf5f4;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 95%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-container {
+  position: relative;
+  background-color: #2a9d8f;
+  padding: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 1.8rem;
+  row-gap: 1.8rem;
+  border-radius: 8px;
+  transition: all 1s;
+  overflow: hidden;
+}
+
+.icon-container {
+  /* Hide highlight when tap */
+  -webkit-tap-highlight-color: transparent;
+  background-color: #264653;
+  cursor: pointer;
+  width: 7.2rem;
+  aspect-ratio: 1;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s;
+}
+
+.icon {
+  font-size: 3.2rem;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.score-timer-container {
+  display: flex;
+}
+
+.score-timer-container h2 {
+  padding: 1.6rem 6.4rem;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  color: #aad8d2;
+}
+
+.score,
+.timer {
+  color: #eaf5f4;
+}
+
+/* STATUS CHANGES */
+
+/* - Click */
+.flip {
+  transform: translateX(-1px) rotateY(360deg);
+}
+
+.reveal {
+  opacity: 1 !important;
+  z-index: 100 !important;
+}
+
+/* - WIN */
+
+.win-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: all 1s;
+  z-index: -1;
+}
+
+.restart-btn,
+.restart-btn:link,
+.restart-btn:visited {
+  top: 70%;
+  left: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0.8rem 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 9px;
+  transition: all 0.3s;
+}
+
+.restart-btn:hover {
+  background-color: #264653;
+  color: #eaf5f4;
+  cursor: pointer;
+}
+
+.restart-btn:active {
+  background-color: #e9c46a;
+  color: #264653;
+}
+
+.win-message,
+.restart-btn {
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1s;
+}
+.win-message {
+  top: 40%;
+  left: 50%;
+  width: 100%;
+  font-size: 6.4rem;
+  letter-spacing: 2px;
+}
