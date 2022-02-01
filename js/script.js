@@ -104,22 +104,22 @@ const notMatch = function () {
 // WIN or LOSE
 
 const win = function (result) {
-  let bgColor, msg;
+  let bgColorClass, msg;
   if (result) {
-    bgColor = '#3fa79a';
+    bgColorClass = 'win-bg';
     msg = 'You Win!';
     score++;
   } else {
-    bgColor = '#A63F4B';
+    bgColorClass = 'lose-bg';
     msg = 'You Lose!';
   }
   scoreElm.textContent = score;
   stopTimer();
   setTimeout(() => {
     winContainerElm.classList.add('reveal');
+    winContainerElm.classList.add(bgColorClass);
     winMsgElm.classList.add('reveal');
     restartBtn.classList.add('reveal');
-    winContainerElm.style.backgroundColor = bgColor;
     winMsgElm.textContent = msg;
   }, 200);
 };
@@ -138,7 +138,7 @@ const restart = function () {
 };
 
 ///////////
-//TIMER
+// TIMER
 
 const formatTime = function (time) {
   let secs = time % 60;
